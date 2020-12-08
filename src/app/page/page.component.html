@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="primary-view" [ngStyle]="bgImg && { 'background-image': bgImg }">
+    <div class="overlay">
+      <h1>
+        {{ page?.heading }}
+      </h1>
+      <h2>
+        {{ page?.subheading }}
+      </h2>
+      <p>
+        {{ page?.caption }}
+      </p>
+    </div>
+  </div>
+  <div class="content-view">
+    <img
+      class="cover-img"
+      [title]="page?.title"
+      [alt]="page?.title"
+      [src]="coverImg"
+      alt=""
+    />
+
+    <main>
+      <section>
+        <ng-container *ngFor="let item of content">
+          <article
+            *ngIf="item.type !== 'paragraph'"
+            [ngClass]="styleClass[item.type]"
+          >
+            <p>
+              {{ item.data }}
+            </p>
+          </article>
+          <article
+            [innerHTML]="item.data"
+            *ngIf="item.type === 'paragraph'"
+            [ngClass]="styleClass[item.type]"
+          ></article>
+          <article
+            [innerHTML]="item.data"
+            *ngIf="item.type === 'paragraph'"
+            [ngClass]="styleClass[item.type]"
+          ></article>
+          <article
+            [innerHTML]="item.data"
+            *ngIf="item.type === 'paragraph'"
+            [ngClass]="styleClass[item.type]"
+          ></article>
+        </ng-container>
+      </section>
+      <div></div>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque vero
+        consequatur quod labore natus illo iure quidem, temporibus unde cum
+        placeat dolore doloribus minus debitis assumenda deserunt quaerat rerum
+        nesciunt.
+      </p>
+    </main>
+  </div>
+</div>
